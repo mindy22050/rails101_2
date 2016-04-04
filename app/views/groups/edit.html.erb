@@ -1,0 +1,11 @@
+<div class='col-md-4 col-md-4 col-md-4'>
+  <h1>嫌廢文不夠廢？改一下吧</h1>
+  <hr>
+  <%= simple_form_for @group do |f| %>
+    <div class='form-group'>
+      <%= f.input :title %>
+      <%= f.input :description %>
+    </div>
+    <%= f.submit "改好惹", class: 'btn btn-primary', data: { disable_with: "Submitting..."}%>
+  <%end%>
+</div>
