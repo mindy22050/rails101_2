@@ -1,0 +1,11 @@
+<div class="col-md-4 col-md-offset-4">
+  <h1>對這篇廢文發出評論吧</h1>
+  <hr>
+  <%= simple_form_for [@group,@post] do |f| %>
+    <div>
+      <%= f.input :content, input_html: {class: 'form-control'} %>
+    </div>
+    <%= f.submit "評論廢文", class: 'btn btn-primary', data: { disable_with: "Submitting..."}%>
+    <%= link_to "算了，取消吧", group_path(@group), class: 'btn btn-default' %>
+  <%end%>
+</div>
