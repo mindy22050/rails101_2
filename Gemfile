@@ -7,6 +7,7 @@ gem 'devise','~> 3.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
+#把rails改成可以deploy到heroku的
 group :development, :test do
   gem 'sqlite3'
 end
