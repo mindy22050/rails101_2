@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+#手動製作CRUD架構
+gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
