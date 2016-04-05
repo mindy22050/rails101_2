@@ -1,7 +1,16 @@
 <div class='col-md-12'>
   <div class='group'>
     <%= link_to "新增評論", new_group_post_path(@group), class: 'btn btn-warning pull-right' %>
-    <!-- <%= link_to "編輯", edit_group_path(@group),class: 'btn btn-primary pull-right'%> -->
+    <% if @group.editable_by?(current_user) %>
+      <%= link_to "編輯", edit_group_path(@group),class: 'btn btn-primary pull-right'%>
+    <% end %>
+    <% if current_user.present? %>
+      <% if current_user.is_member_of?(@group) %>
+        <%= link_to "退出群組", quit_group_path,method: :post, class: 'btn btn-danger' %>
+      <% else %>
+        <%= link_to "加入群組", join_group_path,method: :post, class: 'btn btn-info' %>
+      <% end %>
+    <% end %>
     <%= link_to '回到首頁', groups_path, class: 'btn btn-default pull-right'%>
   </div>
     <h2><%= @group.title%></h2>
@@ -19,9 +28,12 @@
         <tr>
           <td><%= post.content%></td>
           <td>
-            <!-- <%= link_to '編輯', edit_group_post_path(post.group, post), class: 'btn btn-default btn-xs' %>
-            <%= link_to '刪除', group_post_path(post.group, post), class: 'btn btn-default btn-xs',
-                        method: :delete, data: { confirm:'你真心要刪？'}%> -->
+
+          <% if post.editable_by?(current_user) %>
+              <%= link_to '編輯', edit_group_post_path(post.group, post), class: 'btn btn-default btn-xs' %>
+              <%= link_to '刪除', group_post_path(post.group, post), class: 'btn btn-default btn-xs',
+                          method: :delete, data: { confirm:'你真心要刪？'}%>
+          <% end %>
           </td>
         </tr>
         <%end%>
