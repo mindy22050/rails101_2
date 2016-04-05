@@ -14,7 +14,7 @@
     <%= link_to '回到首頁', groups_path, class: 'btn btn-default pull-right'%>
   </div>
     <h2><%= @group.title%></h2>
-    <p><%= @group.description%></p>
+    <p><%= simple_format(@group.description)%></p>
 
     <table class='table'>
       <thead>
@@ -26,7 +26,7 @@
       <tbody>
         <% @posts.each do |post|%>
         <tr>
-          <td><%= post.content%></td>
+          <td><%= render_post_content(post)%></td>
           <td>
 
           <% if post.editable_by?(current_user) %>

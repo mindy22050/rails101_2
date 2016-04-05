@@ -1,12 +1,5 @@
-<div class='col-md-4 col-md-4 col-md-4'>
+<div class="col-md-4 col-md-offset-4">
   <h1>嫌廢文不夠廢？改一下吧</h1>
   <hr>
-  <%= simple_form_for @group do |f| %>
-    <div class='form-group'>
-      <%= f.input :title %>
-      <%= f.input :description %>
-    </div>
-    <%= f.submit "改好惹", class: 'btn btn-primary', data: { disable_with: "Submitting..."}%>
-    <%= link_to "算了，取消吧", groups_path, class: 'btn btn-default' %>
-  <%end%>
+    <%= render 'form', group: :@group %>
 </div>
